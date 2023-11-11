@@ -8,12 +8,17 @@ import { useState, useEffect } from "react";
 
 function Home() {
 
+    const img_path = 'https://image.tmdb.org/t/p/w500/'
+
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
 
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=2991304cd890b434863fd6bfba05e94c&language=en-US&page=1`)
-
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=2991304cd890b434863fd6bfba05e94c&language=pt-BR&page=1`)
+            .then(response => response.json())
+            .then(data => { 
+                setMovies(data.results) 
+            })
     }, [])
 
     /*const movies = [
@@ -46,7 +51,7 @@ function Home() {
                         return (
                             <Movie>
                                 <a href="https://www.google.com">
-                                    <img src={movie.image_url} alt={movie.title} />
+                                    <img src={`${img_path}${movie.poster_path}`} alt={movie.title} />
                                 </a>
                                 <span>{movie.title}</span>
                             </Movie>
