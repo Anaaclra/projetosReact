@@ -56,6 +56,7 @@ function Home() {
                                 </Link>
 
                                 <span>{movie.title}</span>
+
                             </Movie>
 
                         )
