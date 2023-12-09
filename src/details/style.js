@@ -51,4 +51,10 @@ button:hover{
     background: #708090;
 }
 
+.trailer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 10px;
+}
+
 `
