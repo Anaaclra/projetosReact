@@ -4,6 +4,9 @@ import { APIKey } from "../config/key";
 import { useState, useEffect } from "react";
 import { Container } from "./style";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleLeft } from "@fortawesome/free-solid-svg-icons";
+
 
 function Details() {
 
@@ -74,7 +77,8 @@ function Details() {
                     <span>Avaliação: {movie.vote_average}</span>
                     <span>Likes: {movie.vote_count}</span>
 
-                    <Link to="/"><button>Retornar ao Catálogo</button></Link>
+                    
+                    <Link to="/"><FontAwesomeIcon icon={faCircleLeft} size="2xl" style={{color: "#ad080f",}} /></Link>
                 </div>
             </div>
 

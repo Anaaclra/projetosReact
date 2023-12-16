@@ -15,9 +15,9 @@ function Home() {
 
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=pt-BR&page=1`)
             .then(response => response.json())
-            .then(data => { 
+            .then(data => {
                 console.log(data.results)
-                setMovies(data.results) 
+                setMovies(data.results)
             })
     }, [])
 
@@ -43,28 +43,52 @@ function Home() {
 
 
     return (
-        <Container>
-            <h2>Catálogo</h2>
-            <Movielist>
-                {
-                    movies.map(movie => {
-                        return (
-                            <Movie key={movie.id}>
-                                <Link to={`/details/${movie.id}`}>
-                                    <img src={`${img_path}${movie.poster_path}`} alt={movie.title} />
-                                
-                                </Link>
+        <div>
+            <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-inner">
+                    <div className="carousel-item active">
+                        <img src="https://tm.ibxk.com.br/2021/12/06/06090019842058.jpg" className="d-block w-100" alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                        <img src="https://tm.ibxk.com.br/2021/12/06/06090019842058.jpg" className="d-block w-100" alt="..." />
+                    </div>
+                    <div className="carousel-item">
+                        <img src="https://tm.ibxk.com.br/2021/12/06/06090019842058.jpg" className="d-block w-100" alt="..." />
+                    </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
+            </div>
 
-                                <span>{movie.title}</span>
+            <Container>
+                <h2>Catálogo</h2>
+                <Movielist>
+                    {
+                        movies.map(movie => {
+                            return (
+                                <Movie key={movie.id}>
+                                    <Link to={`/details/${movie.id}`}>
+                                        <img src={`${img_path}${movie.poster_path}`} alt={movie.title} />
 
-                            </Movie>
+                                    </Link>
 
-                        )
-                    })
-                }
+                                    <span>{movie.title}</span>
 
-            </Movielist>
-        </Container>
+                                </Movie>
+
+                            )
+                        })
+                    }
+
+                </Movielist>
+            </Container>
+        </div>
     )
 }
 
